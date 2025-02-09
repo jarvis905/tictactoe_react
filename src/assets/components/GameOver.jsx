@@ -1,9 +1,10 @@
-export default function GameOver({winner}) {
+export default function GameOver({winner, onRestart}) {
 	return (
 		<div id="game-over">
 			<h2>Game Over!</h2>
-            <p>{winner} won!</p>
-            <button onClick={() => window.location.reload()}>Restart Game!</button>
+            {winner && <p>{winner} won!</p>}
+			{!winner && <p> It's a draw!</p>}
+            <button onClick={onRestart}>Restart Game!</button>
 		</div>
 	);
 }
